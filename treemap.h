@@ -7,6 +7,7 @@
 #include <sstream>
 #include <stack>
 #include <utility>
+#include <map>
 
 template <typename K, typename V>
 class Treemap {
@@ -55,8 +56,9 @@ private:
     // ...To be completed...
     struct Node{
         K key;
-        std::unique_ptr<Node> left;
-        std::unique_ptr<Node> right;
+        V value;
+        std::unique_ptr<Node> left = NULL;
+        std::unique_ptr<Node> right = NULL;
     };
     std::unique_ptr<Node> root;
     size_t size;
@@ -65,6 +67,10 @@ private:
 
     // Private methods
     // ...To be completed (if any)...
+    void Insert(std::unique_ptr<Node> &n, const K &key, const V &value);
+    void Remove(std::unique_ptr<Node> &n, const K &key);
+    bool ContainsValue(std::unique_ptr<Node> &n, const V& value);
+    const V &Treemap<K, V>::Get(std::unique_ptr<Node> &n, const K &key);
 };
 
 //
@@ -82,17 +88,77 @@ bool Treemap<K, V>::Empty() {
 
 template<typename K, typename V>
 void Treemap<K, V>::Insert(const K &key, const V &value) {
+    Insert(root, key, value);
+}
 
+template<typename K, typename V>
+void Treemap<K, V>::Insert(std::unique_ptr<Node> &n, const K &key, const V &value) {
+    if (!n){
+        n = std::unique_ptr<Node>(new Node{key, value});
+        size ++;
+    }
+    else if(key < n->key){
+        Insert(n->left, key, value);
+    }
+    else if(key > n->key){
+        Insert(n->right, key, value);
+    }
+    else{
+        std::cerr<<"Duplicate key " << key << "\n";
+    }
 }
 
 template<typename K, typename V>
 void Treemap<K, V>::Remove(const K &key) {
-
+    if (Empty()){
+        std::cerr<<"Empty tree\n";
+    }
+    else{
+        Remove(root, key);
+    }
+}
+template<typename K, typename V>
+void Treemap<K, V>::Remove(std::unique_ptr<Node> &n, const K &key) {
+    if (!n){
+        std::cerr<<"Invalid Key\n";
+    }
+    if (key < n->key){
+        Remove(n->left, key);
+    }
+    else if (key > n->key){
+        Remove(n->right, key);
+    }
+    else{
+        if (n->left && n->right){
+            n->key = Min(n->right.get())->key;
+            Remove(n->right, key);
+        }
+        else{
+            n = std::move((n->left) ? n->left : n->right);
+            size--;
+        }
+    }
+}
+template<typename K, typename V>
+const V &Treemap<K, V>::Get(const K &key) {
+    if (Empty()){
+        std::cerr<<"Empty tree\n";
+    }
+    else{
+        Get(root, key);
+    }
 }
 
 template<typename K, typename V>
-const V &Treemap<K, V>::Get(const K &key) {
-    return <#initializer#>;
+const V &Treemap<K, V>::Get(std::unique_ptr<Node> &n, const K &key) {
+    if (!n){
+        std::cerr<<"Invalid key\n";
+    }
+    Get(n->left.get(), key);
+    if (n->key == key){
+        return n->value;
+    }
+    Get(n->right.get(), key);
 }
 
 template<typename K, typename V>
@@ -107,12 +173,37 @@ const K &Treemap<K, V>::CeilKey(const K &key) {
 
 template<typename K, typename V>
 bool Treemap<K, V>::ContainsKey(const K &key) {
+    Node *n = root.get();
+    while(n){
+        if (key == n->key){
+            return true;
+        }
+        if(key < n->key){
+            n = n->left.get();
+        }
+        else{
+            n = n->right.get();
+        }
+    }
+
     return false;
 }
 
 template<typename K, typename V>
 bool Treemap<K, V>::ContainsValue(const V &value) {
-    return false;
+    ContainsValue(root, value);
+}
+
+template<typename K, typename V>
+bool Treemap<K, V>::ContainsValue(std::unique_ptr<Node> &n, const V &value) {
+    if (!n){
+        return false;
+    }
+    ContainsValue(n->left.get(), value);
+    if (n->value == value){
+        return true;
+    }
+    ContainsValue(n->right.get(), value);
 }
 
 template<typename K, typename V>
