@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/Users/Jimmy/Documents/CLion/untitled3/eff_donations.cc" "/cygdrive/c/Users/Jimmy/Documents/CLion/untitled3/cmake-build-debug/CMakeFiles/untitled3.dir/eff_donations.cc.o"
-  "/cygdrive/c/Users/Jimmy/Documents/CLion/untitled3/test_treemap.cc" "/cygdrive/c/Users/Jimmy/Documents/CLion/untitled3/cmake-build-debug/CMakeFiles/untitled3.dir/test_treemap.cc.o"
+  "/cygdrive/c/Users/Jimmy/Documents/CLion/hw3/eff_donations.cc" "/cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug/CMakeFiles/untitled3.dir/eff_donations.cc.o"
+  "/cygdrive/c/Users/Jimmy/Documents/CLion/hw3/test_treemap.cc" "/cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug/CMakeFiles/untitled3.dir/test_treemap.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

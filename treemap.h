@@ -59,6 +59,7 @@ private:
         std::unique_ptr<Node> right;
     };
     std::unique_ptr<Node> root;
+    size_t size;
     // Private constants
     // ...To be completed (if any)...
 
@@ -70,8 +71,58 @@ private:
 // Your implementation of the class should be located below
 //
 template <typename K, typename V>
-size_t Size(){
-    return 
+size_t Treemap<K, V>::Size(){
+    return size;
+}
+
+template<typename K, typename V>
+bool Treemap<K, V>::Empty() {
+    return size==0;
+}
+
+template<typename K, typename V>
+void Treemap<K, V>::Insert(const K &key, const V &value) {
+
+}
+
+template<typename K, typename V>
+void Treemap<K, V>::Remove(const K &key) {
+
+}
+
+template<typename K, typename V>
+const V &Treemap<K, V>::Get(const K &key) {
+    return <#initializer#>;
+}
+
+template<typename K, typename V>
+const K &Treemap<K, V>::FloorKey(const K &key) {
+    return <#initializer#>;
+}
+
+template<typename K, typename V>
+const K &Treemap<K, V>::CeilKey(const K &key) {
+    return <#initializer#>;
+}
+
+template<typename K, typename V>
+bool Treemap<K, V>::ContainsKey(const K &key) {
+    return false;
+}
+
+template<typename K, typename V>
+bool Treemap<K, V>::ContainsValue(const V &value) {
+    return false;
+}
+
+template<typename K, typename V>
+const K &Treemap<K, V>::MaxKey() {
+    return <#initializer#>;
+}
+
+template<typename K, typename V>
+const K &Treemap<K, V>::MinKey() {
+    return <#initializer#>;
 }
 // ...To be completed...
 
