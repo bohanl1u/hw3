@@ -57,8 +57,8 @@ private:
     struct Node{
         K key;
         V value;
-        std::unique_ptr<Node> left = NULL;
-        std::unique_ptr<Node> right = NULL;
+        std::unique_ptr<Node> left;
+        std::unique_ptr<Node> right;
     };
     std::unique_ptr<Node> root;
     size_t size;

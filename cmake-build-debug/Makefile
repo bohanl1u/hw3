@@ -78,19 +78,19 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# The main all target
+# The test_treemap.cc all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/Jimmy/Documents/CLion/untitled3/cmake-build-debug/CMakeFiles /cygdrive/c/Users/Jimmy/Documents/CLion/untitled3/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/Jimmy/Documents/CLion/untitled3/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
-# The main clean target
+# The test_treemap.cc clean target
 clean:
 	$(MAKE) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
-# The main clean target
+# The test_treemap.cc clean target
 clean/fast: clean
 
 .PHONY : clean/fast
@@ -123,32 +123,32 @@ untitled3/fast:
 	$(MAKE) -f CMakeFiles/untitled3.dir/build.make CMakeFiles/untitled3.dir/build
 .PHONY : untitled3/fast
 
-main.o: main.cpp.o
+test_treemap.cc.o: test_treemap.cc.o
 
-.PHONY : main.o
+.PHONY : test_treemap.cc.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/untitled3.dir/build.make CMakeFiles/untitled3.dir/main.cpp.o
-.PHONY : main.cpp.o
+test_treemap.cc.o:
+	$(MAKE) -f CMakeFiles/untitled3.dir/build.make CMakeFiles/untitled3.dir/test_treemap.cc.o
+.PHONY : test_treemap.cc.o
 
-main.i: main.cpp.i
+test_treemap.cc.i: test_treemap.cc.i
 
-.PHONY : main.i
+.PHONY : test_treemap.cc.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/untitled3.dir/build.make CMakeFiles/untitled3.dir/main.cpp.i
-.PHONY : main.cpp.i
+test_treemap.cc.i:
+	$(MAKE) -f CMakeFiles/untitled3.dir/build.make CMakeFiles/untitled3.dir/test_treemap.cc.i
+.PHONY : test_treemap.cc.i
 
-main.s: main.cpp.s
+test_treemap.cc.s: test_treemap.cc.s
 
-.PHONY : main.s
+.PHONY : test_treemap.cc.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/untitled3.dir/build.make CMakeFiles/untitled3.dir/main.cpp.s
-.PHONY : main.cpp.s
+test_treemap.cc.s:
+	$(MAKE) -f CMakeFiles/untitled3.dir/build.make CMakeFiles/untitled3.dir/test_treemap.cc.s
+.PHONY : test_treemap.cc.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... untitled3"
 	@echo "... edit_cache"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... test_treemap.cc.o"
+	@echo "... test_treemap.cc.i"
+	@echo "... test_treemap.cc.s"
 .PHONY : help
 
 
