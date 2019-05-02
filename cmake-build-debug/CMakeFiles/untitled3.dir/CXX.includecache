@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/Jimmy/Documents/CLion/untitled3/main.cpp
+treemap.h
+/cygdrive/c/Users/Jimmy/Documents/CLion/untitled3/treemap.h
+
+/cygdrive/c/Users/Jimmy/Documents/CLion/untitled3/treemap.h
+algorithm
+-
+iostream
+-
+memory
+-
+sstream
+-
+stack
+-
+utility
+-
+map
+-
+

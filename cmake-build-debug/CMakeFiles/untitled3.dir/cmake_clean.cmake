@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/untitled3.dir/test_treemap.cc.o"
-  "CMakeFiles/untitled3.dir/eff_donations.cc.o"
+  "CMakeFiles/untitled3.dir/main.cpp.o"
   "untitled3.pdb"
   "untitled3.exe"
   "libuntitled3.dll.a"

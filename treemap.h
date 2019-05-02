@@ -70,7 +70,7 @@ private:
     void Insert(std::unique_ptr<Node> &n, const K &key, const V &value);
     void Remove(std::unique_ptr<Node> &n, const K &key);
     bool ContainsValue(std::unique_ptr<Node> &n, const V& value);
-    const V &Treemap<K, V>::Get(std::unique_ptr<Node> &n, const K &key);
+    const V& Get(std::unique_ptr<Node> &n, const K &key);
 };
 
 //
@@ -140,7 +140,7 @@ void Treemap<K, V>::Remove(std::unique_ptr<Node> &n, const K &key) {
     }
 }
 template<typename K, typename V>
-const V &Treemap<K, V>::Get(const K &key) {
+const V& Treemap<K, V>::Get(const K &key) {
     if (Empty()){
         std::cerr<<"Empty tree\n";
     }
@@ -150,7 +150,7 @@ const V &Treemap<K, V>::Get(const K &key) {
 }
 
 template<typename K, typename V>
-const V &Treemap<K, V>::Get(std::unique_ptr<Node> &n, const K &key) {
+const V& Treemap<K, V>::Get(std::unique_ptr<Node> &n, const K &key) {
     if (!n){
         std::cerr<<"Invalid key\n";
     }
@@ -161,15 +161,15 @@ const V &Treemap<K, V>::Get(std::unique_ptr<Node> &n, const K &key) {
     Get(n->right.get(), key);
 }
 
-template<typename K, typename V>
-const K &Treemap<K, V>::FloorKey(const K &key) {
-    return <#initializer#>;
-}
+//template<typename K, typename V>
+//const K &Treemap<K, V>::FloorKey(const K &key) {
+//    return K;
+//}
 
-template<typename K, typename V>
-const K &Treemap<K, V>::CeilKey(const K &key) {
-    return <#initializer#>;
-}
+//template<typename K, typename V>
+//const K &Treemap<K, V>::CeilKey(const K &key) {
+//    return <#initializer#>;
+//}
 
 template<typename K, typename V>
 bool Treemap<K, V>::ContainsKey(const K &key) {
@@ -206,15 +206,15 @@ bool Treemap<K, V>::ContainsValue(std::unique_ptr<Node> &n, const V &value) {
     ContainsValue(n->right.get(), value);
 }
 
-template<typename K, typename V>
-const K &Treemap<K, V>::MaxKey() {
-    return <#initializer#>;
-}
+//template<typename K, typename V>
+//const K &Treemap<K, V>::MaxKey() {
+//    return <#initializer#>;
+//}
 
-template<typename K, typename V>
-const K &Treemap<K, V>::MinKey() {
-    return <#initializer#>;
-}
+//template<typename K, typename V>
+//const K &Treemap<K, V>::MinKey() {
+//    return <#initializer#>;
+//}
 // ...To be completed...
 
 #endif  // TREEMAP_H_

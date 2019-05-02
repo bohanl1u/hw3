@@ -3,4 +3,5 @@ project(untitled3)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(untitled3 treemap.h test_treemap.cc eff_donations.cc)
+
+add_executable(untitled3 treemap.h main.cpp)
