@@ -47,6 +47,8 @@ public:
     // Return min key in map --O(log N) on average
     const K& MinKey();
 
+    void Print();
+
 private:
     //
     // @@@ The class's internal members below can be modified @@@
@@ -61,7 +63,7 @@ private:
         std::unique_ptr<Node> right;
     };
     std::unique_ptr<Node> root;
-    size_t size;
+    size_t size = 0;
     // Private constants
     // ...To be completed (if any)...
 
@@ -71,6 +73,8 @@ private:
     void Remove(std::unique_ptr<Node> &n, const K &key);
     bool ContainsValue(std::unique_ptr<Node> &n, const V& value);
     const V& Get(std::unique_ptr<Node> &n, const K &key);
+
+    void Print(Node *n, int level);
 };
 
 //
@@ -89,13 +93,13 @@ bool Treemap<K, V>::Empty() {
 template<typename K, typename V>
 void Treemap<K, V>::Insert(const K &key, const V &value) {
     Insert(root, key, value);
+    size++;
 }
 
 template<typename K, typename V>
 void Treemap<K, V>::Insert(std::unique_ptr<Node> &n, const K &key, const V &value) {
     if (!n){
         n = std::unique_ptr<Node>(new Node{key, value});
-        size ++;
     }
     else if(key < n->key){
         Insert(n->left, key, value);
@@ -115,6 +119,7 @@ void Treemap<K, V>::Remove(const K &key) {
     }
     else{
         Remove(root, key);
+        size--;
     }
 }
 template<typename K, typename V>
@@ -130,12 +135,11 @@ void Treemap<K, V>::Remove(std::unique_ptr<Node> &n, const K &key) {
     }
     else{
         if (n->left && n->right){
-            n->key = Min(n->right.get())->key;
+            n->key = MinKey();
             Remove(n->right, key);
         }
         else{
             n = std::move((n->left) ? n->left : n->right);
-            size--;
         }
     }
 }
@@ -154,22 +158,62 @@ const V& Treemap<K, V>::Get(std::unique_ptr<Node> &n, const K &key) {
     if (!n){
         std::cerr<<"Invalid key\n";
     }
-    Get(n->left.get(), key);
+    Get(n->left, key);
     if (n->key == key){
         return n->value;
     }
-    Get(n->right.get(), key);
+    Get(n->right, key);
 }
 
-//template<typename K, typename V>
-//const K &Treemap<K, V>::FloorKey(const K &key) {
-//    return K;
-//}
+template <typename K, typename V>
+const K& Treemap<K,V>::FloorKey(const K &key){
 
-//template<typename K, typename V>
-//const K &Treemap<K, V>::CeilKey(const K &key) {
-//    return <#initializer#>;
-//}
+    Node *n = root.get();
+    while (n) {
+        //when key is found, if left branch exists, search for max in left branch
+        if (key == n->key){
+            if(n->right) {
+                n = n->left.get();
+                while (n->right) {
+                    n = n->right.get();
+                }
+                return n->key;
+            }else{
+                throw std::out_of_range("No floor!\n");
+            }
+        }
+        if (key < n->key){
+            n = n->left.get();
+        }
+        else {
+            n = n->right.get();
+        }
+    }
+
+    throw std::out_of_range("Key not found!\n");
+}
+
+template <typename K, typename V>
+const K& Treemap<K,V>::CeilKey(const K &key) {
+    Node *n = root.get();
+    while (n) {
+        //when key is found, if right branch exists, search for min in right branch
+        if (key == n->key){
+            if(n->right) {
+                return MinKey();
+            } else{
+                throw std::out_of_range("No ceiling!\n");
+            }
+        }
+        if (key < n->key){
+            n = n->left.get();
+        }
+        else {
+            n = n->right.get();
+        }
+    }
+    throw std::out_of_range("Key not found!\n");
+}
 
 template<typename K, typename V>
 bool Treemap<K, V>::ContainsKey(const K &key) {
@@ -199,22 +243,42 @@ bool Treemap<K, V>::ContainsValue(std::unique_ptr<Node> &n, const V &value) {
     if (!n){
         return false;
     }
-    ContainsValue(n->left.get(), value);
+    ContainsValue(n->left, value);
     if (n->value == value){
         return true;
     }
-    ContainsValue(n->right.get(), value);
+    ContainsValue(n->right, value);
 }
 
-//template<typename K, typename V>
-//const K &Treemap<K, V>::MaxKey() {
-//    return <#initializer#>;
-//}
+template<typename K, typename V>
+const K &Treemap<K, V>::MaxKey() {
+    Node *n = root.get();
+    while (n->right)
+        n = n->right.get();return n->key;
+}
 
-//template<typename K, typename V>
-//const K &Treemap<K, V>::MinKey() {
-//    return <#initializer#>;
-//}
+template<typename K, typename V>
+const K &Treemap<K, V>::MinKey() {
+    Node *n = root.get();
+    while (n->left)
+        n = n->left.get();
+    return n->key;
+}
+
+
+template <typename K, typename V>
+void Treemap<K, V>::Print() {
+    Print(root.get(), 1);
+    std::cout << std::endl;
+}
+template <typename K, typename V>
+void Treemap<K, V>::Print(Node *n, int level) {
+    if (!n) return;
+    Print(n->left.get(), level + 1);
+    std::cout << n->key
+              << " [" << n->value << "] ";
+    Print(n->right.get(), level + 1);
+}
 // ...To be completed...
 
 #endif  // TREEMAP_H_

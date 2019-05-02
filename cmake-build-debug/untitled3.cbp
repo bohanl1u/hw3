@@ -80,10 +80,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/c/Users/Jimmy/Documents/CLion/hw3/test_treemap.cc">
-			<Option target="untitled3"/>
-		</Unit>
-		<Unit filename="/cygdrive/c/Users/Jimmy/Documents/CLion/hw3/treemap.h">
+		<Unit filename="/cygdrive/c/Users/Jimmy/Documents/CLion/hw3/main.cpp">
 			<Option target="untitled3"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/Jimmy/Documents/CLion/hw3/CMakeLists.txt">

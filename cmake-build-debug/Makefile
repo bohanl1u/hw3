@@ -48,10 +48,10 @@ RM = /cygdrive/c/Users/Jimmy/.CLion2018.3/system/cygwin_cmake/bin/cmake.exe -E r
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cygdrive/c/Users/Jimmy/Documents/CLion/untitled3
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/Jimmy/Documents/CLion/hw3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cygdrive/c/Users/Jimmy/Documents/CLion/untitled3/cmake-build-debug
+CMAKE_BINARY_DIR = /cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -78,19 +78,19 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# The test_treemap.cc all target
+# The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/Jimmy/Documents/CLion/untitled3/cmake-build-debug/CMakeFiles /cygdrive/c/Users/Jimmy/Documents/CLion/untitled3/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug/CMakeFiles /cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/Jimmy/Documents/CLion/untitled3/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
-# The test_treemap.cc clean target
+# The main clean target
 clean:
 	$(MAKE) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
-# The test_treemap.cc clean target
+# The main clean target
 clean/fast: clean
 
 .PHONY : clean/fast
@@ -123,32 +123,32 @@ untitled3/fast:
 	$(MAKE) -f CMakeFiles/untitled3.dir/build.make CMakeFiles/untitled3.dir/build
 .PHONY : untitled3/fast
 
-test_treemap.cc.o: test_treemap.cc.o
+main.o: main.cpp.o
 
-.PHONY : test_treemap.cc.o
+.PHONY : main.o
 
 # target to build an object file
-test_treemap.cc.o:
-	$(MAKE) -f CMakeFiles/untitled3.dir/build.make CMakeFiles/untitled3.dir/test_treemap.cc.o
-.PHONY : test_treemap.cc.o
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled3.dir/build.make CMakeFiles/untitled3.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-test_treemap.cc.i: test_treemap.cc.i
+main.i: main.cpp.i
 
-.PHONY : test_treemap.cc.i
+.PHONY : main.i
 
 # target to preprocess a source file
-test_treemap.cc.i:
-	$(MAKE) -f CMakeFiles/untitled3.dir/build.make CMakeFiles/untitled3.dir/test_treemap.cc.i
-.PHONY : test_treemap.cc.i
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled3.dir/build.make CMakeFiles/untitled3.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-test_treemap.cc.s: test_treemap.cc.s
+main.s: main.cpp.s
 
-.PHONY : test_treemap.cc.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-test_treemap.cc.s:
-	$(MAKE) -f CMakeFiles/untitled3.dir/build.make CMakeFiles/untitled3.dir/test_treemap.cc.s
-.PHONY : test_treemap.cc.s
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled3.dir/build.make CMakeFiles/untitled3.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... untitled3"
 	@echo "... edit_cache"
-	@echo "... test_treemap.cc.o"
-	@echo "... test_treemap.cc.i"
-	@echo "... test_treemap.cc.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

@@ -660,3 +660,45 @@ make[1]: Leaving directory '/cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-bu
     Feature record: CXX_FEATURE:0cxx_variable_templates
     Feature record: CXX_FEATURE:0cxx_variadic_macros
     Feature record: CXX_FEATURE:0cxx_variadic_templates
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make.exe" "cmTC_0870d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0870d.dir/build.make CMakeFiles/cmTC_0870d.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0870d.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_0870d.dir/CheckIncludeFile.c.o   -c /cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_0870d.exe
+/cygdrive/c/Users/Jimmy/.CLion2018.3/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_0870d.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,--enable-auto-import  CMakeFiles/cmTC_0870d.dir/CheckIncludeFile.c.o  -o cmTC_0870d.exe -Wl,--out-implib,libcmTC_0870d.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+make[1]: Leaving directory '/cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Determining if the pthread_create exist passed with the following output:
+Change Dir: /cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make.exe" "cmTC_65e27/fast"
+/usr/bin/make -f CMakeFiles/cmTC_65e27.dir/build.make CMakeFiles/cmTC_65e27.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_65e27.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_65e27.dir/CheckSymbolExists.c.o   -c /cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_65e27.exe
+/cygdrive/c/Users/Jimmy/.CLion2018.3/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_65e27.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,--enable-auto-import  CMakeFiles/cmTC_65e27.dir/CheckSymbolExists.c.o  -o cmTC_65e27.exe -Wl,--out-implib,libcmTC_65e27.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+make[1]: Leaving directory '/cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+File /cygdrive/c/Users/Jimmy/Documents/CLion/hw3/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
